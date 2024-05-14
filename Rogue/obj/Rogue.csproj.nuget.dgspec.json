@@ -48,6 +48,10 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
+            },
+            "Raylib-CSharp-Vinculum": {
+              "target": "Package",
+              "version": "[5.0.1, )"
             }
           },
           "imports": [

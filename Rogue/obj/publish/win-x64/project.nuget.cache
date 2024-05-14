@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "k4HiCJJtHj4qMA0gZs6ZdYripN6qtnK7xwTRN7JpoIOQRnXyUCt9LCyNQo4JjABYnY0M4G3fhFY+1YEGAID+jg==",
+  "success": true,
+  "projectFilePath": "C:\\GitHub Repositories\\net-rogue\\Rogue\\Rogue.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\s2200794\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.1\\microsoft.net.illink.tasks.8.0.1.nupkg.sha512",
+    "C:\\Users\\s2200794\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\s2200794\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\8.0.1\\microsoft.netcore.app.runtime.win-x64.8.0.1.nupkg.sha512",
+    "C:\\Users\\s2200794\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\8.0.1\\microsoft.windowsdesktop.app.runtime.win-x64.8.0.1.nupkg.sha512",
+    "C:\\Users\\s2200794\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\8.0.1\\microsoft.aspnetcore.app.runtime.win-x64.8.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

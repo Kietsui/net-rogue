@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "hrAX5DaLQpx6FkeOFI40jySkHadRLPavDIeUT/u2ig23qPCqYygkTfOGE5O2j6Xh7MROhesnO8yHtndZWWG+3Q==",
+  "dgSpecHash": "MGUQadxCf6hVPUxfJSk8C4+kRT42bc8P/CT/VlHestbJYOZexp6UwEwHg02FxdzM5raqex+j8HOiTwjy7/bxCw==",
   "success": true,
   "projectFilePath": "C:\\GitHub Repositories\\net-rogue\\Rogue\\Rogue.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\s2200794\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+    "C:\\Users\\s2200794\\.nuget\\packages\\communitytoolkit.highperformance\\8.1.0\\communitytoolkit.highperformance.8.1.0.nupkg.sha512",
+    "C:\\Users\\s2200794\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\s2200794\\.nuget\\packages\\raylib-csharp-vinculum\\5.0.1\\raylib-csharp-vinculum.5.0.1.nupkg.sha512"
   ],
   "logs": []
 }

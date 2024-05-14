@@ -1,60 +1,89 @@
 ﻿using Newtonsoft.Json;
 using System;
+using ZeroElectric.Vinculum;
 
 public class Game
 {
     private PlayerCharacter player;
     private Map level01;
+    private bool gameRunning = false;
+    private Texture myImage;
+
+    private int imagesPerRow = 12;
+
+    public static readonly int tileSize = 16;
 
     public void Run()
     {
         Console.CursorVisible = false;
+        Console.Clear();
 
-        // Load the map
+        Init();
+        GameLoop();
+    }
+
+    private void Init()
+    {
+        Console.WindowWidth = 55;
+
+        PlayerCharacter playerCharacter = CreateNewPlayer();
+        player = new PlayerCharacter('@', Raylib.GREEN);
+
         MapLoader loader = new MapLoader();
         level01 = loader.LoadTestMap();
 
-        Console.WindowWidth = 60;
-        Console.WindowHeight = 26;
-
-        PlayerCharacter playerCharacter = CreateNewPlayer();
-        Console.Clear();
-
-        player = new PlayerCharacter('@', ConsoleColor.Green);
-
         player.position = new Point2D(level01.mapWidth / 2, level01.mapTiles.Length / level01.mapWidth / 2);
 
-        bool gameRunning = true;
-        while (gameRunning)
+        Raylib.InitWindow(480, 270, "Rogue");
+        Raylib.SetTargetFPS(30);
+
+        int X = 1;
+        int Y = 8;
+        int atlasIndex = Y * imagesPerRow + X;
+
+        int imagePixelX = (atlasIndex % imagesPerRow) * tileSize;
+        int imagePixelY = (atlasIndex / imagesPerRow) * tileSize;
+
+        myImage = Raylib.LoadTexture("Images/tilemap_packed.png");
+        player.SetImageAndIndex(myImage, imagesPerRow, 97);
+
+        loader.SetTexture(myImage);
+    }
+
+    private void DrawGame()
+    {
+        Raylib.BeginDrawing();
+        Raylib.ClearBackground(Raylib.WHITE);
+
+        level01.Draw();
+        player.Draw();
+
+        Raylib.EndDrawing();
+    }
+
+
+    private void UpdateGame()
+    {
+        if (Console.KeyAvailable == false)
         {
-            level01.Draw();
+            Thread.Sleep(33);
+            return;
+        }
 
-            Console.SetCursorPosition(player.position.x, player.position.y);
-            player.Draw();
+        if (Raylib.IsKeyPressed(KeyboardKey.KEY_UP)) { MovePlayer(0, -1); }
+        else if (Raylib.IsKeyPressed(KeyboardKey.KEY_DOWN)) { MovePlayer(0, 1); }
+        else if (Raylib.IsKeyPressed(KeyboardKey.KEY_LEFT)) { MovePlayer(-1, 0); }
+        else if (Raylib.IsKeyPressed(KeyboardKey.KEY_RIGHT)) { MovePlayer(1, 0); }
+        else if (Raylib.IsKeyPressed(KeyboardKey.KEY_ESCAPE)) { gameRunning = false; }
 
-            ConsoleKeyInfo key = Console.ReadKey();
-            switch (key.Key)
-            {
-                case ConsoleKey.UpArrow:
-                    MovePlayer(0, -1);
-                    break;
-                case ConsoleKey.DownArrow:
-                    MovePlayer(0, 1);
-                    break;
-                case ConsoleKey.LeftArrow:
-                    MovePlayer(-1, 0);
-                    break;
-                case ConsoleKey.RightArrow:
-                    MovePlayer(1, 0);
-                    break;
-                case ConsoleKey.Escape:
-                    gameRunning = false;
-                    break;
-                default:
-                    break;
-            };
+    }
 
-            Console.Clear();
+    private void GameLoop()
+    {
+        while (Raylib.WindowShouldClose() == false) 
+        { 
+            DrawGame();
+            UpdateGame();
         }
     }
 
@@ -74,7 +103,7 @@ public class Game
             }
         }
     }
-
+    
     private PlayerCharacter CreateNewPlayer()
     {
         string name = AskForPlayerName();

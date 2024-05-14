@@ -1,33 +1,56 @@
 ﻿using System;
+using System.Numerics;
+using ZeroElectric.Vinculum;
 
 public class PlayerCharacter
 {
     public Point2D position;
+    private char characterSymbol;
+    private Color color;
 
-    private char image;
-    private ConsoleColor color;
+    private Texture image;
 
-    public PlayerCharacter(char image, ConsoleColor color)
+    private int imagePixelX;
+    private int imagePixelY;
+
+    public PlayerCharacter(char characterSymbol, Color color)
     {
-        this.image = image;
+        this.characterSymbol = characterSymbol;
         this.color = color;
     }
 
     public void Move(int x_move, int y_move)
     {
-        position.x += x_move;
-        position.y += y_move;
+        int newX = position.x + x_move;
+        int newY = position.y + y_move;
 
-        position.x = Math.Clamp(position.x, 0, Console.WindowWidth - 1);
-        position.y = Math.Clamp(position.y, 0, Console.WindowHeight - 1);
+        newX = Math.Clamp(newX, 0, (Raylib.GetScreenWidth() / Game.tileSize) - 1);
+        newY = Math.Clamp(newY, 0, (Raylib.GetScreenHeight() / Game.tileSize) - 1);
+
+        position.x = newX;
+        position.y = newY;
     }
 
     public void Draw()
     {
-        Console.ForegroundColor = color;
-        Console.SetCursorPosition(position.x, position.y);
-        Console.Write(image);
+        int pixelX = position.x * Game.tileSize;
+        int pixelY = position.y * Game.tileSize;
+
+        Rectangle sourceRect = new Rectangle(imagePixelX, imagePixelY, Game.tileSize, Game.tileSize);
+
+        // Draw the portion of the image specified by sourceRect
+        Raylib.DrawTextureRec(image, sourceRect, new Vector2(pixelX, pixelY), Raylib.WHITE);
     }
+
+
+
+    public void SetImageAndIndex(Texture atlasImage, int imagesPerRow, int index)
+    {
+        image = atlasImage;
+        imagePixelX = (index % imagesPerRow) * Game.tileSize;
+        imagePixelY = (int)(index / imagesPerRow) * Game.tileSize;
+    }
+
 
     public enum Race
     {

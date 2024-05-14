@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net8.0": {
+      "CommunityToolkit.HighPerformance/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/CommunityToolkit.HighPerformance.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/CommunityToolkit.HighPerformance.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "Newtonsoft.Json/13.0.3": {
         "type": "package",
         "compile": {
@@ -14,10 +27,74 @@
             "related": ".xml"
           }
         }
+      },
+      "Raylib-CSharp-Vinculum/5.0.1": {
+        "type": "package",
+        "dependencies": {
+          "CommunityToolkit.HighPerformance": "8.1.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/Raylib-CSharp-Vinculum.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/Raylib-CSharp-Vinculum.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libraylib.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/win-x64/native/raylib.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x64/native/raylib.exp": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x64/native/raylib.lib": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x64/native/raylib.pdb": {
+            "assetType": "native",
+            "rid": "win-x64"
+          }
+        }
       }
     }
   },
   "libraries": {
+    "CommunityToolkit.HighPerformance/8.1.0": {
+      "sha512": "kgDi65k02hrgnHy3N0xENecsr0spW13RdIA1tipovi9t16gKziI7uZIu3qkxz0GctCHNM4hfeqXYg//6wHJ6Kw==",
+      "type": "package",
+      "path": "communitytoolkit.highperformance/8.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "License.md",
+        "ThirdPartyNotices.txt",
+        "communitytoolkit.highperformance.8.1.0.nupkg.sha512",
+        "communitytoolkit.highperformance.nuspec",
+        "lib/net6.0/CommunityToolkit.HighPerformance.dll",
+        "lib/net6.0/CommunityToolkit.HighPerformance.pdb",
+        "lib/net6.0/CommunityToolkit.HighPerformance.xml",
+        "lib/net7.0/CommunityToolkit.HighPerformance.dll",
+        "lib/net7.0/CommunityToolkit.HighPerformance.pdb",
+        "lib/net7.0/CommunityToolkit.HighPerformance.xml",
+        "lib/netstandard2.0/CommunityToolkit.HighPerformance.dll",
+        "lib/netstandard2.0/CommunityToolkit.HighPerformance.pdb",
+        "lib/netstandard2.0/CommunityToolkit.HighPerformance.xml",
+        "lib/netstandard2.1/CommunityToolkit.HighPerformance.dll",
+        "lib/netstandard2.1/CommunityToolkit.HighPerformance.pdb",
+        "lib/netstandard2.1/CommunityToolkit.HighPerformance.xml"
+      ]
+    },
     "Newtonsoft.Json/13.0.3": {
       "sha512": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
       "type": "package",
@@ -47,11 +124,32 @@
         "newtonsoft.json.nuspec",
         "packageIcon.png"
       ]
+    },
+    "Raylib-CSharp-Vinculum/5.0.1": {
+      "sha512": "g21BSSFWohdtUohpo3PW7ZHt7EGZ1+qssg3uWoHy5cnJtsPNNoMjzeyX+xOGM6HEi3JhlzPZFJ2+qojuFPXP5A==",
+      "type": "package",
+      "path": "raylib-csharp-vinculum/5.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/netstandard2.1/Raylib-CSharp-Vinculum.dll",
+        "lib/netstandard2.1/Raylib-CSharp-Vinculum.xml",
+        "raylib-csharp-vinculum.5.0.1.nupkg.sha512",
+        "raylib-csharp-vinculum.nuspec",
+        "raylib-csharp-vinculum_logo_256x256.png",
+        "runtimes/linux-x64/native/libraylib.so",
+        "runtimes/win-x64/native/raylib.dll",
+        "runtimes/win-x64/native/raylib.exp",
+        "runtimes/win-x64/native/raylib.lib",
+        "runtimes/win-x64/native/raylib.pdb"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "Newtonsoft.Json >= 13.0.3"
+      "Newtonsoft.Json >= 13.0.3",
+      "Raylib-CSharp-Vinculum >= 5.0.1"
     ]
   },
   "packageFolders": {
@@ -102,6 +200,10 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.3, )"
+          },
+          "Raylib-CSharp-Vinculum": {
+            "target": "Package",
+            "version": "[5.0.1, )"
           }
         },
         "imports": [
