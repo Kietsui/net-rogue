@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\leoha\\Documents\\GitHub\\net-rogue\\Rogue\\Rogue.csproj": {}
+    "C:\\GitHub Repositories\\net-rogue\\Rogue\\Rogue.csproj": {}
   },
   "projects": {
-    "C:\\Users\\leoha\\Documents\\GitHub\\net-rogue\\Rogue\\Rogue.csproj": {
+    "C:\\GitHub Repositories\\net-rogue\\Rogue\\Rogue.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\leoha\\Documents\\GitHub\\net-rogue\\Rogue\\Rogue.csproj",
+        "projectUniqueName": "C:\\GitHub Repositories\\net-rogue\\Rogue\\Rogue.csproj",
         "projectName": "Rogue",
-        "projectPath": "C:\\Users\\leoha\\Documents\\GitHub\\net-rogue\\Rogue\\Rogue.csproj",
-        "packagesPath": "C:\\Users\\leoha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\leoha\\Documents\\GitHub\\net-rogue\\Rogue\\obj\\",
+        "projectPath": "C:\\GitHub Repositories\\net-rogue\\Rogue\\Rogue.csproj",
+        "packagesPath": "C:\\Users\\s2200794\\.nuget\\packages\\",
+        "outputPath": "C:\\GitHub Repositories\\net-rogue\\Rogue\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\leoha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\s2200794\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,11 +39,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -74,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

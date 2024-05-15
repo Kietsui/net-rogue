@@ -168,12 +168,23 @@ public class Map
             return;
         }
 
-        foreach (var item in items)
+        int mapHeight = layer.mapTiles.Length / mapWidth;
+        int itemTileIndex = 108; // Hardcoded tile index for items
+
+        for (int y = 0; y < mapHeight; y++)
         {
-            int itemTileIndex = item.y * imagesPerRow + item.x; // Calculate the tile index for the item texture
-            Rectangle sourceRect = GetTileRec(imagesPerRow, itemTileIndex);
-            Rectangle destRect = new Rectangle((int)item.position.X * Game.tileSize, (int)item.position.Y * Game.tileSize, Game.tileSize, Game.tileSize);
-            Raylib.DrawTexturePro(myImage, sourceRect, destRect, Vector2.Zero, 0f, Raylib.WHITE);
+            for (int x = 0; x < mapWidth; x++)
+            {
+                int index = x + y * mapWidth;
+                int tileIndex = layer.mapTiles[index];
+
+                if (tileIndex == 1)
+                {
+                    Rectangle sourceRect = GetTileRec(imagesPerRow, itemTileIndex);
+                    Rectangle destRect = new Rectangle(x * Game.tileSize, y * Game.tileSize, Game.tileSize, Game.tileSize);
+                    Raylib.DrawTexturePro(myImage, sourceRect, destRect, Vector2.Zero, 0f, Raylib.WHITE);
+                }
+            }
         }
     }
 
@@ -185,15 +196,25 @@ public class Map
             return;
         }
 
-        foreach (var enemy in enemies)
+        int mapHeight = layer.mapTiles.Length / mapWidth;
+        int enemyTileIndex = 109; // Hardcoded tile index for enemies
+
+        for (int y = 0; y < mapHeight; y++)
         {
-            int enemyTileIndex = enemy.y * imagesPerRow + enemy.x; // Calculate the tile index for the enemy texture
-            Rectangle sourceRect = GetTileRec(imagesPerRow, enemyTileIndex);
-            Rectangle destRect = new Rectangle((int)enemy.position.X * Game.tileSize, (int)enemy.position.Y * Game.tileSize, Game.tileSize, Game.tileSize);
-            Raylib.DrawTexturePro(myImage, sourceRect, destRect, Vector2.Zero, 0f, Raylib.WHITE);
+            for (int x = 0; x < mapWidth; x++)
+            {
+                int index = x + y * mapWidth;
+                int tileIndex = layer.mapTiles[index];
+
+                if (tileIndex == 1)
+                {
+                    Rectangle sourceRect = GetTileRec(imagesPerRow, enemyTileIndex);
+                    Rectangle destRect = new Rectangle(x * Game.tileSize, y * Game.tileSize, Game.tileSize, Game.tileSize);
+                    Raylib.DrawTexturePro(myImage, sourceRect, destRect, Vector2.Zero, 0f, Raylib.WHITE);
+                }
+            }
         }
     }
-
 
     private Rectangle GetTileRec(int imagesPerRow, int tileIndex)
     {

@@ -117,9 +117,9 @@ public class Game
         Raylib.BeginTextureMode(game_screen);
         Raylib.ClearBackground(Raylib.WHITE);
 
-        level01.DrawMapTiles(myImage, level01.layers[0]);
+        //level01.DrawMapTiles(myImage, level01.layers[0]);
         level01.DrawItems(myImage, level01.layers[1]);
-        //level01.DrawEnemies(myImage, level01.layers[2]);
+        level01.DrawEnemies(myImage, level01.layers[2]);
         player.Draw();
 
         Raylib.EndTextureMode();
