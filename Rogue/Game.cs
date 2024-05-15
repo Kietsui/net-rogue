@@ -1,17 +1,26 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.ComponentModel;
+using System.Numerics;
 using ZeroElectric.Vinculum;
+using static MapLoader;
 
 public class Game
 {
     private PlayerCharacter player;
     private Map level01;
+
     private bool gameRunning = false;
     private Texture myImage;
 
-    private int imagesPerRow = 12;
-
+    public static readonly int imagesPerRow = 12;
     public static readonly int tileSize = 16;
+
+    private int screen_width = 1280;
+    private int screen_height = 720;
+    private int game_width = 480;
+    private int game_height = 270;
+    private RenderTexture game_screen;
 
     public void Run()
     {
@@ -20,6 +29,8 @@ public class Game
 
         Init();
         GameLoop();
+        Raylib.CloseWindow();
+        Raylib.UnloadRenderTexture(game_screen);
     }
 
     private void Init()
@@ -29,61 +40,131 @@ public class Game
         PlayerCharacter playerCharacter = CreateNewPlayer();
         player = new PlayerCharacter('@', Raylib.GREEN);
 
-        MapLoader loader = new MapLoader();
-        level01 = loader.LoadTestMap();
-
-        player.position = new Point2D(level01.mapWidth / 2, level01.mapTiles.Length / level01.mapWidth / 2);
-
-        Raylib.InitWindow(480, 270, "Rogue");
+        Raylib.InitWindow(screen_width, screen_height, "Rogue");
+        Raylib.SetWindowState(ConfigFlags.FLAG_WINDOW_RESIZABLE);
         Raylib.SetTargetFPS(30);
 
-        int X = 1;
-        int Y = 8;
-        int atlasIndex = Y * imagesPerRow + X;
+        Raylib.SetWindowMinSize(game_width, game_height);
 
-        int imagePixelX = (atlasIndex % imagesPerRow) * tileSize;
-        int imagePixelY = (atlasIndex / imagesPerRow) * tileSize;
+        game_screen = Raylib.LoadRenderTexture(game_width, game_height);
+        Raylib.SetTextureFilter(game_screen.texture, TextureFilter.TEXTURE_FILTER_POINT);
 
         myImage = Raylib.LoadTexture("Images/tilemap_packed.png");
+        if (myImage.id == 0)
+        {
+            Console.WriteLine("Failed to load texture atlas");
+            return;
+        }
+        else
+        {
+            Console.WriteLine("Loaded texture atlas");
+        }
+
+        MapLoader loader = new MapLoader();
+        loader.SetTexture(myImage);
+        level01 = loader.LoadTestMap();
+
+        if (level01 != null && level01.layers != null)
+        {
+            Console.WriteLine($"Layers count: {level01.layers.Length}");
+
+            if (level01.layers.Length > 0 && level01.layers[0] != null)
+            {
+                Console.WriteLine($"Ground layer tile count: {level01.layers[0].mapTiles.Length}");
+            }
+            if (level01.layers.Length > 1 && level01.layers[1] != null)
+            {
+                Console.WriteLine($"Items layer tile count: {level01.layers[1].mapTiles.Length}");
+            }
+            if (level01.layers.Length > 2 && level01.layers[2] != null)
+            {
+                Console.WriteLine($"Enemies layer tile count: {level01.layers[2].mapTiles.Length}");
+            }
+        }
+        else
+        {
+            Console.WriteLine("level01 or level01.layers is null.");
+        }
+
+        level01.LoadEnemiesAndItems(myImage, level01.layers[0].mapTiles, level01.layers[1].mapTiles);
+        player.position = new Point2D(level01.mapWidth / 2, level01.mapTiles.Length / level01.mapWidth / 2);
+
         player.SetImageAndIndex(myImage, imagesPerRow, 97);
 
-        loader.SetTexture(myImage);
+        int wallX = 4, wallY = 3;
+        int floorX = 0, floorY = 4;
+        int itemX = 7, itemY = 9;
+        int enemyX = 1, enemyY = 9;
+
+        int wallIndex = wallY * imagesPerRow + wallX;
+        int floorIndex = floorY * imagesPerRow + floorX;
+        int itemIndex = itemY * imagesPerRow + itemX;
+        int enemyIndex = enemyY * imagesPerRow + enemyX;
+
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine($"Wall Texture Index: {wallIndex}");
+        Console.WriteLine($"Floor Texture Index: {floorIndex}");
+        Console.WriteLine($"Item Textuer Index: {itemIndex}");
+        Console.WriteLine($"Enemy Texture Index: {enemyIndex}");
+        Console.ResetColor();
     }
 
-    private void DrawGame()
+
+
+
+    private void DrawGameToTexture()
     {
-        Raylib.BeginDrawing();
+        Raylib.BeginTextureMode(game_screen);
         Raylib.ClearBackground(Raylib.WHITE);
 
-        level01.Draw();
+        level01.DrawMapTiles(myImage, level01.layers[0]);
+        level01.DrawItems(myImage, level01.layers[1]);
+        //level01.DrawEnemies(myImage, level01.layers[2]);
         player.Draw();
+
+        Raylib.EndTextureMode();
+    }
+
+
+
+    private void DrawGameScaled()
+    {
+        Raylib.BeginDrawing();
+        Raylib.ClearBackground(Raylib.DARKGRAY);
+
+        int draw_width = Raylib.GetScreenWidth();
+        int draw_height = Raylib.GetScreenHeight();
+        float scale = Math.Min((float)draw_width / game_width, (float)draw_height / game_height);
+
+        Rectangle source = new Rectangle(0.0f, 0.0f, game_screen.texture.width, game_screen.texture.height * -1.0f);
+        Rectangle destination = new Rectangle(
+            (draw_width - (float)game_width * scale) * 0.5f,
+            (draw_height - (float)game_height * scale) * 0.5f,
+            game_width * scale,
+            game_height * scale
+        );
+
+        Raylib.DrawTexturePro(game_screen.texture, source, destination, new Vector2(0, 0), 0.0f, Raylib.WHITE);
 
         Raylib.EndDrawing();
     }
 
-
     private void UpdateGame()
     {
-        if (Console.KeyAvailable == false)
-        {
-            Thread.Sleep(33);
-            return;
-        }
-
         if (Raylib.IsKeyPressed(KeyboardKey.KEY_UP)) { MovePlayer(0, -1); }
         else if (Raylib.IsKeyPressed(KeyboardKey.KEY_DOWN)) { MovePlayer(0, 1); }
         else if (Raylib.IsKeyPressed(KeyboardKey.KEY_LEFT)) { MovePlayer(-1, 0); }
         else if (Raylib.IsKeyPressed(KeyboardKey.KEY_RIGHT)) { MovePlayer(1, 0); }
         else if (Raylib.IsKeyPressed(KeyboardKey.KEY_ESCAPE)) { gameRunning = false; }
-
     }
 
     private void GameLoop()
     {
-        while (Raylib.WindowShouldClose() == false) 
-        { 
-            DrawGame();
+        while (!Raylib.WindowShouldClose())
+        {
             UpdateGame();
+            DrawGameToTexture();
+            DrawGameScaled();
         }
     }
 
@@ -103,7 +184,7 @@ public class Game
             }
         }
     }
-    
+
     private PlayerCharacter CreateNewPlayer()
     {
         string name = AskForPlayerName();

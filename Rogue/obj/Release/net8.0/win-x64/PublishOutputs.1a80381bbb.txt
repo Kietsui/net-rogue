@@ -1,3 +1,0 @@
-C:\GitHub Repositories\net-rogue\Rogue\bin\Release\net8.0\publish\win-x64\Rogue.pdb
-C:\GitHub Repositories\net-rogue\Rogue\bin\Release\net8.0\publish\win-x64\Maps\mapfile.json
-C:\GitHub Repositories\net-rogue\Rogue\bin\Release\net8.0\publish\win-x64\Rogue.exe

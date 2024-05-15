@@ -38,7 +38,6 @@ public class PlayerCharacter
 
         Rectangle sourceRect = new Rectangle(imagePixelX, imagePixelY, Game.tileSize, Game.tileSize);
 
-        // Draw the portion of the image specified by sourceRect
         Raylib.DrawTextureRec(image, sourceRect, new Vector2(pixelX, pixelY), Raylib.WHITE);
     }
 
