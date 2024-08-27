@@ -160,6 +160,7 @@ public class Map
         }
     }
 
+
     public void DrawItems(Texture myImage, MapLayer layer)
     {
         if (layer == null)
@@ -188,6 +189,7 @@ public class Map
         }
     }
 
+
     public void DrawEnemies(Texture myImage, MapLayer layer)
     {
         if (layer == null)
@@ -215,6 +217,7 @@ public class Map
             }
         }
     }
+
 
     private Rectangle GetTileRec(int imagesPerRow, int tileIndex)
     {

@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Rogue",
+    "\\Rogue\\Maps"
   ],
-  "SelectedNode": "\\net-rogue.sln",
+  "SelectedNode": "\\Rogue\\Maps\\mapfile.json",
   "PreviewInSolutionExplorer": false
 }
