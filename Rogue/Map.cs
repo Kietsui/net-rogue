@@ -13,7 +13,7 @@ public class Map
     }
 
     public int mapWidth;
-    public int[] mapTiles;
+    public int[] mapTiles { get { return layers[0].mapTiles; }}
     public MapLayer[] layers;
     private Texture atlas;
     private int imagesPerRow;
@@ -39,10 +39,25 @@ public class Map
         }
     }
 
+    public Map()
+    {
+        layers = new MapLayer[3];
+    }
+
+    /// <summary>
+    /// Alustaa kartan ja siihen liittyvät kerrokset sekä lataa viholliset ja esineet.
+    /// </summary>
+    /// <param name="width">Kartan leveys ruuduissa.</param>
+    /// <param name="tiles">ground layer ruutujen indeksit.</param>
+    /// <param name="atlas">Käytettävä tekstuurikartta.</param>
+    /// <param name="imagesPerRow">Kuvien määrä rivillä tekstuurissa.</param>
+    /// <param name="wallIdx">Seinäruudun indeksitekstuurissa.</param>
+    /// <param name="floorIdx">Lattiaruudun indeksitekstuurissa.</param>
+    /// <param name="itemLayer">Item layerin ruutujen indeksit.</param>
+    /// <param name="enemyLayer">Enemy layerin ruutujen indeksit.</param>
     public Map(int width, int[] tiles, Texture atlas, int imagesPerRow, int wallIdx, int floorIdx, int[] itemLayer, int[] enemyLayer)
     {
         this.mapWidth = width;
-        this.mapTiles = tiles;
         this.atlas = atlas;
         this.imagesPerRow = imagesPerRow;
         wallIndex = wallIdx;
@@ -73,14 +88,11 @@ public class Map
                 Vector2 position = new Vector2(x, y);
                 int index = x + y * mapWidth;
                 int enemyTileId = enemyLayer[index];
-                switch (enemyTileId)
+                if ( enemyTileId != 0)
                 {
-                    case 0:
-                        break;
-                    case 1:
-                        enemies.Add(new Enemy("Orc", position, spriteAtlas, enemyTileId, x, y));
-                        break;
+                    enemies.Add(new Enemy("Orc", position, spriteAtlas, enemyTileId -1, x, y));
                 }
+
             }
         }
 
@@ -92,18 +104,20 @@ public class Map
                 Vector2 position = new Vector2(x, y);
                 int index = x + y * mapWidth;
                 int itemTileId = itemLayer[index];
-                switch (itemTileId)
-                {
-                    case 0:
-                        break;
-                    case 1:
-                        items.Add(new Item("Health Potion", position, spriteAtlas, itemTileId, x, y));
-                        break;
+                
+                if ( itemTileId != 0) 
+                { 
+                    items.Add(new Item("Health Potion", position, spriteAtlas, itemTileId -1, x, y));
                 }
             }
         }
     }
 
+
+    /// <summary>
+    /// Piirtää koko kartan kaikki tasot: maaston, esineet ja viholliset.
+    /// </summary>
+    /// <param name="myImage">Tekstuurikuva (sprite atlas), jota käytetään piirtoon.</param>
     public void Draw(Texture myImage)
     {
         if (layers == null)
@@ -117,6 +131,12 @@ public class Map
         DrawEnemies(myImage, layers[2]);
     }
 
+
+    /// <summary>
+    /// Piirtää maalaatat (esim. lattia ja seinä) annetun tason mukaan.
+    /// </summary>
+    /// <param name="myImage">Tekstuurikuva (sprite atlas), josta laatat leikataan.</param>
+    /// <param name="layer">Karttataso, joka sisältää maastolaattojen tiedot.</param>
     public void DrawMapTiles(Texture myImage, MapLayer layer)
     {
         if (layer == null)
@@ -143,24 +163,18 @@ public class Map
                 Rectangle sourceRect;
                 Rectangle destRect = new Rectangle(x * Game.tileSize, y * Game.tileSize, Game.tileSize, Game.tileSize);
 
-                switch ((MapTile)tileIndex)
-                {
-                    case MapTile.Floor:
-                        sourceRect = GetTileRec(imagesPerRow, floorIndex);
-                        break;
-                    case MapTile.Wall:
-                        sourceRect = GetTileRec(imagesPerRow, wallIndex);
-                        break;
-                    default:
-                        continue;
-                }
+                sourceRect = GetTileRec(imagesPerRow, tileIndex -1);
 
                 Raylib.DrawTexturePro(myImage, sourceRect, destRect, Vector2.Zero, 0f, Raylib.WHITE);
             }
         }
     }
 
-
+    /// <summary>
+    /// Piirtää kartalla olevat esineet kutsumalla jokaisen esineen Draw-metodia.
+    /// </summary>
+    /// <param name="myImage">Tekstuurikuva (ei käytetä suoraan tässä metodissa).</param>
+    /// <param name="layer">map layer, joka sisältää esinetiedot.</param>
     public void DrawItems(Texture myImage, MapLayer layer)
     {
         if (layer == null)
@@ -169,62 +183,32 @@ public class Map
             return;
         }
 
-        int mapHeight = layer.mapTiles.Length / mapWidth;
-        int itemTileIndex = 108; // Hardcoded tile index for items
-
-        for (int y = 0; y < mapHeight; y++)
+        for (int x = 0; x < items.Count; x++)
         {
-            for (int x = 0; x < mapWidth; x++)
-            {
-                int index = x + y * mapWidth;
-                int tileIndex = layer.mapTiles[index];
-
-                if (tileIndex == 1)
-                {
-                    Rectangle sourceRect = GetTileRec(imagesPerRow, itemTileIndex);
-                    Rectangle destRect = new Rectangle(x * Game.tileSize, y * Game.tileSize, Game.tileSize, Game.tileSize);
-                    Raylib.DrawTexturePro(myImage, sourceRect, destRect, Vector2.Zero, 0f, Raylib.WHITE);
-                }
-            }
+            items[x].Draw();
         }
-    }
 
+    }
 
     public void DrawEnemies(Texture myImage, MapLayer layer)
     {
         if (layer == null)
         {
-            Console.WriteLine("Error: Enemies layer is null.");
+            Console.WriteLine("Error: Items layer is null.");
             return;
         }
 
-        int mapHeight = layer.mapTiles.Length / mapWidth;
-        int enemyTileIndex = 109; // Hardcoded tile index for enemies
-
-        for (int y = 0; y < mapHeight; y++)
+        for (int x  = 0; x < enemies.Count; x++)
         {
-            for (int x = 0; x < mapWidth; x++)
-            {
-                int index = x + y * mapWidth;
-                int tileIndex = layer.mapTiles[index];
-
-                if (tileIndex == 1)
-                {
-                    Rectangle sourceRect = GetTileRec(imagesPerRow, enemyTileIndex);
-                    Rectangle destRect = new Rectangle(x * Game.tileSize, y * Game.tileSize, Game.tileSize, Game.tileSize);
-                    Raylib.DrawTexturePro(myImage, sourceRect, destRect, Vector2.Zero, 0f, Raylib.WHITE);
-                }
-            }
+            enemies[x].Draw();
         }
     }
 
 
     private Rectangle GetTileRec(int imagesPerRow, int tileIndex)
     {
-        int tileWidth = atlas.width / imagesPerRow;
-        int tileHeight = atlas.height / imagesPerRow;
-        int tileX = (tileIndex % imagesPerRow) * tileWidth;
-        int tileY = (tileIndex / imagesPerRow) * tileHeight;
-        return new Rectangle(tileX, tileY, tileWidth, tileHeight);
+        int tileX = (tileIndex % Game.imagesPerRow) * Game.tileSize;
+        int tileY = (tileIndex / Game.imagesPerRow) * Game.tileSize;
+        return new Rectangle(tileX, tileY, Game.tileSize, Game.tileSize);
     }
 }

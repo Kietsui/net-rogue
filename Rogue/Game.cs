@@ -7,8 +7,8 @@ using static MapLoader;
 
 public class Game
 {
-    private PlayerCharacter player;
-    private Map level01;
+    private PlayerCharacter? player;
+    private Map? level01;
 
     private bool gameRunning = false;
     private Texture myImage;
@@ -33,6 +33,9 @@ public class Game
         Raylib.UnloadRenderTexture(game_screen);
     }
 
+    /// <summary>
+    /// Alustaa pelin: ikkunan, tekstuurit, pelaajan, kartan ja sen kerrokset.
+    /// </summary>
     private void Init()
     {
         Console.WindowWidth = 55;
@@ -62,7 +65,9 @@ public class Game
 
         MapLoader loader = new MapLoader();
         loader.SetTexture(myImage);
-        level01 = loader.LoadTestMap();
+
+        // Ladataan kenttä tiedostosta
+        level01 = loader.ReadMapFromFile("Tiled/tiledmap.tmj");
 
         if (level01 != null && level01.layers != null)
         {
@@ -86,8 +91,8 @@ public class Game
             Console.WriteLine("level01 or level01.layers is null.");
         }
 
-        level01.LoadEnemiesAndItems(myImage, level01.layers[0].mapTiles, level01.layers[1].mapTiles);
-        player.position = new Point2D(level01.mapWidth / 2, level01.mapTiles.Length / level01.mapWidth / 2);
+        level01?.LoadEnemiesAndItems(myImage, level01.layers[2].mapTiles, level01.layers[1].mapTiles);
+        player.position = new Point2D(3,3);
 
         player.SetImageAndIndex(myImage, imagesPerRow, 97);
 
@@ -110,6 +115,41 @@ public class Game
     }
 
 
+    public void DrawMainMenu()
+    {
+        Raylib.BeginDrawing();
+        Raylib.ClearBackground(Raylib.BLACK);
+
+        int button_width = 100;
+        int button_height = 20;
+
+        int button_x = Raylib.GetScreenWidth() / 2 - button_width / 2;
+        int button_y = Raylib.GetScreenHeight() / 2 - button_height / 2;
+
+        RayGui.GuiLabel(new Rectangle(button_x, button_y - button_height * 2, button_width, button_height), "Rogue");
+        RayGui.GuiLabel(new Rectangle(button_x, button_y - button_height * 2, button_width, button_height), "WASD - to move");
+
+        if (RayGui.GuiButton(new Rectangle(button_x, button_y, button_width, button_height), "Start Game"))
+        {
+            // Start game
+        }
+
+        button_y += button_height * 2;
+
+        if (RayGui.GuiButton(new Rectangle(button_x, button_y, button_width, button_height), "Options"))
+        {
+            // Options
+        }
+
+        button_y += button_height * 2;
+
+        if (RayGui.GuiButton(new Rectangle(button_x, button_y, button_width, button_height), "Quit"))
+        {
+            // Quit
+        }
+
+        Raylib.EndDrawing();
+    }
 
 
     private void DrawGameToTexture()
@@ -117,6 +157,7 @@ public class Game
         Raylib.BeginTextureMode(game_screen);
         Raylib.ClearBackground(Raylib.WHITE);
 
+        // Piirrä kenttäkerrokset
         level01.DrawMapTiles(myImage, level01.layers[0]);
         level01.DrawItems(myImage, level01.layers[1]);
         level01.DrawEnemies(myImage, level01.layers[2]);
@@ -127,6 +168,9 @@ public class Game
 
 
 
+    /// <summary>
+    /// Piirtää pelin näytölle skaalaamalla sen ikkunan kokoon.
+    /// </summary>
     private void DrawGameScaled()
     {
         Raylib.BeginDrawing();
@@ -165,20 +209,27 @@ public class Game
             UpdateGame();
             DrawGameToTexture();
             DrawGameScaled();
+            //DrawMainMenu();
         }
     }
 
+
+    /// <summary>
+    /// Siirtää pelaajaa ruudukossa annettuun suuntaan, mikäli uusi sijainti on lattiala.
+    /// </summary>
+    /// <param name="deltaX">X-akselin muutos.</param>
+    /// <param name="deltaY">Y-akselin muutos.</param>
     private void MovePlayer(int deltaX, int deltaY)
     {
         int newX = player.position.x + deltaX;
         int newY = player.position.y + deltaY;
 
-        if (newX >= 0 && newX < level01.mapWidth && newY >= 0 && newY < level01.mapTiles.Length / level01.mapWidth)
+        if (newX >= 0 && newX < level01.mapWidth && newY >= 0 && newY < level01.GetLayer("ground").mapTiles.Length / level01.mapWidth)
         {
             int index = newX + newY * level01.mapWidth;
             int tileId = level01.mapTiles[index];
 
-            if (tileId != 2)
+            if (tileId == 49)
             {
                 player.Move(deltaX, deltaY);
             }

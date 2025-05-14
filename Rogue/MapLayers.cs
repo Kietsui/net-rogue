@@ -12,19 +12,19 @@ public class Enemy
 {
     public string name;
     public Vector2 position;
-    public int x; // Add x property
-    public int y; // Add y property
+    public int x;
+    public int y;
     private Texture graphics;
     private int drawIndex;
 
-    public Enemy(string name, Vector2 position, Texture graphics, int drawIndex, int x, int y) // Add x and y parameters
+    public Enemy(string name, Vector2 position, Texture graphics, int drawIndex, int x, int y)
     {
         this.name = name;
         this.position = position;
         this.graphics = graphics;
         this.drawIndex = drawIndex;
-        this.x = x; // Assign x parameter to the property
-        this.y = y; // Assign y parameter to the property
+        this.x = x;
+        this.y = y;
     }
 
     public void Draw()
@@ -34,17 +34,13 @@ public class Enemy
 
     private Rectangle GetSourceRectangle()
     {
-        // Calculate source rectangle based on drawIndex
-        int tileWidth = graphics.width / Game.imagesPerRow;
-        int tileHeight = graphics.height / Game.imagesPerRow;
-        int tileX = (drawIndex % Game.imagesPerRow) * tileWidth;
-        int tileY = (drawIndex / Game.imagesPerRow) * tileHeight;
-        return new Rectangle(tileX, tileY, tileWidth, tileHeight);
+        int tileX = (drawIndex % Game.imagesPerRow) * Game.tileSize;
+        int tileY = (drawIndex / Game.imagesPerRow) * Game.tileSize;
+        return new Rectangle(tileX, tileY, Game.tileSize, Game.tileSize);
     }
 
     private Rectangle GetDestinationRectangle()
     {
-        // Calculate destination rectangle based on position and tile size
         return new Rectangle(position.X * Game.tileSize, position.Y * Game.tileSize, Game.tileSize, Game.tileSize);
     }
 }
@@ -53,8 +49,8 @@ public class Item
 {
     public string name;
     public Vector2 position;
-    public int x; // Add x property
-    public int y; // Add y property
+    public int x;
+    public int y;
     private Texture graphics;
     private int drawIndex;
 
@@ -64,8 +60,8 @@ public class Item
         this.position = position;
         this.graphics = graphics;
         this.drawIndex = drawIndex;
-        this.x = x; // Assign x parameter to the property
-        this.y = y; // Assign y parameter to the property
+        this.x = x;
+        this.y = y;
     }
 
     public void Draw()
@@ -75,17 +71,13 @@ public class Item
 
     private Rectangle GetSourceRectangle()
     {
-        // Calculate source rectangle based on drawIndex
-        int tileWidth = graphics.width / Game.imagesPerRow;
-        int tileHeight = graphics.height / Game.imagesPerRow;
-        int tileX = (drawIndex % Game.imagesPerRow) * tileWidth;
-        int tileY = (drawIndex / Game.imagesPerRow) * tileHeight;
-        return new Rectangle(tileX, tileY, tileWidth, tileHeight);
+        int tileX = (drawIndex % Game.imagesPerRow) * Game.tileSize;
+        int tileY = (drawIndex / Game.imagesPerRow) * Game.tileSize;
+        return new Rectangle(tileX, tileY, Game.tileSize, Game.tileSize);
     }
 
     private Rectangle GetDestinationRectangle()
     {
-        // Calculate destination rectangle based on position and tile size
         return new Rectangle(position.X * Game.tileSize, position.Y * Game.tileSize, Game.tileSize, Game.tileSize);
     }
 }

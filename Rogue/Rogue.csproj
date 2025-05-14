@@ -5,11 +5,12 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="Raylib-CSharp-Vinculum" Version="5.0.1" />
+    <PackageReference Include="Raylib-CSharp-Vinculum" Version="4.5.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,6 +26,20 @@
     <None Update="Maps\mapfile_layers.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Tiled\tiledmap.tmj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Tiled\tiny dungeon.tsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Tiled\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\rogue\TurboMapReader-main\TurboMapReader-main\TurboMapReader.csproj" />
   </ItemGroup>
 
 </Project>

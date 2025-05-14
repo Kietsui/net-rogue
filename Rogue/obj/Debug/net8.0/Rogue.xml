@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rogue</name>
+    </assembly>
+    <members>
+        <member name="M:Game.Init">
+            <summary>
+            Alustaa pelin: ikkunan, tekstuurit, pelaajan, kartan ja sen kerrokset.
+            </summary>
+        </member>
+        <member name="M:Game.DrawGameScaled">
+            <summary>
+            Piirtää pelin näytölle skaalaamalla sen ikkunan kokoon.
+            </summary>
+        </member>
+        <member name="M:Game.MovePlayer(System.Int32,System.Int32)">
+            <summary>
+            Siirtää pelaajaa ruudukossa annettuun suuntaan, mikäli uusi sijainti on lattiala.
+            </summary>
+            <param name="deltaX">X-akselin muutos.</param>
+            <param name="deltaY">Y-akselin muutos.</param>
+        </member>
+        <member name="M:Map.#ctor(System.Int32,System.Int32[],ZeroElectric.Vinculum.Texture,System.Int32,System.Int32,System.Int32,System.Int32[],System.Int32[])">
+            <summary>
+            Alustaa kartan ja siihen liittyvät kerrokset sekä lataa viholliset ja esineet.
+            </summary>
+            <param name="width">Kartan leveys ruuduissa.</param>
+            <param name="tiles">ground layer ruutujen indeksit.</param>
+            <param name="atlas">Käytettävä tekstuurikartta.</param>
+            <param name="imagesPerRow">Kuvien määrä rivillä tekstuurissa.</param>
+            <param name="wallIdx">Seinäruudun indeksitekstuurissa.</param>
+            <param name="floorIdx">Lattiaruudun indeksitekstuurissa.</param>
+            <param name="itemLayer">Item layerin ruutujen indeksit.</param>
+            <param name="enemyLayer">Enemy layerin ruutujen indeksit.</param>
+        </member>
+        <member name="M:Map.Draw(ZeroElectric.Vinculum.Texture)">
+            <summary>
+            Piirtää koko kartan kaikki tasot: maaston, esineet ja viholliset.
+            </summary>
+            <param name="myImage">Tekstuurikuva (sprite atlas), jota käytetään piirtoon.</param>
+        </member>
+        <member name="M:Map.DrawMapTiles(ZeroElectric.Vinculum.Texture,MapLayer)">
+            <summary>
+            Piirtää maalaatat (esim. lattia ja seinä) annetun tason mukaan.
+            </summary>
+            <param name="myImage">Tekstuurikuva (sprite atlas), josta laatat leikataan.</param>
+            <param name="layer">Karttataso, joka sisältää maastolaattojen tiedot.</param>
+        </member>
+        <member name="M:Map.DrawItems(ZeroElectric.Vinculum.Texture,MapLayer)">
+            <summary>
+            Piirtää kartalla olevat esineet kutsumalla jokaisen esineen Draw-metodia.
+            </summary>
+            <param name="myImage">Tekstuurikuva (ei käytetä suoraan tässä metodissa).</param>
+            <param name="layer">map layer, joka sisältää esinetiedot.</param>
+        </member>
+        <member name="M:MapLoader.ConvertTiledMapToMap(TurboMapReader.TiledMap)">
+            <summary>
+            muuttaa tiled kartan olio mapiksi
+            tekee ground, item ja enemy layerin karttaan, jotta voidaan piirtää kaikki nämä oikein
+            </summary>
+            <param name="turboMap"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

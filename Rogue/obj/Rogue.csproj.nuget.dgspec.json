@@ -22,12 +22,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Tiedostot\\rogue\\TurboMapReader-main\\TurboMapReader-main\\TurboMapReader.csproj": {
+                "projectPath": "C:\\Tiedostot\\rogue\\TurboMapReader-main\\TurboMapReader-main\\TurboMapReader.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -51,7 +56,7 @@
             },
             "Raylib-CSharp-Vinculum": {
               "target": "Package",
-              "version": "[5.0.1, )"
+              "version": "[4.5.0, )"
             }
           },
           "imports": [
@@ -71,6 +76,77 @@
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Tiedostot\\rogue\\TurboMapReader-main\\TurboMapReader-main\\TurboMapReader.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Tiedostot\\rogue\\TurboMapReader-main\\TurboMapReader-main\\TurboMapReader.csproj",
+        "projectName": "TurboMapReader",
+        "projectPath": "C:\\Tiedostot\\rogue\\TurboMapReader-main\\TurboMapReader-main\\TurboMapReader.csproj",
+        "packagesPath": "C:\\Users\\s2200794\\.nuget\\packages\\",
+        "outputPath": "C:\\Tiedostot\\rogue\\TurboMapReader-main\\TurboMapReader-main\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\s2200794\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "System.Xml.XmlSerializer": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
