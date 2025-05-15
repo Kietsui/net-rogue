@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Tiedostot\\Github\\net-rogue\\Rogue\\Rogue.csproj": {}
+    "C:\\Users\\leoha\\Documents\\GitHub\\net-rogue\\Rogue\\Rogue.csproj": {}
   },
   "projects": {
-    "C:\\Tiedostot\\Github\\net-rogue\\Rogue\\Rogue.csproj": {
+    "C:\\Users\\leoha\\Documents\\GitHub\\net-rogue\\Rogue\\Rogue.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Tiedostot\\Github\\net-rogue\\Rogue\\Rogue.csproj",
+        "projectUniqueName": "C:\\Users\\leoha\\Documents\\GitHub\\net-rogue\\Rogue\\Rogue.csproj",
         "projectName": "Rogue",
-        "projectPath": "C:\\Tiedostot\\Github\\net-rogue\\Rogue\\Rogue.csproj",
-        "packagesPath": "C:\\Users\\s2200794\\.nuget\\packages\\",
-        "outputPath": "C:\\Tiedostot\\Github\\net-rogue\\Rogue\\obj\\",
+        "projectPath": "C:\\Users\\leoha\\Documents\\GitHub\\net-rogue\\Rogue\\Rogue.csproj",
+        "packagesPath": "C:\\Users\\leoha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\leoha\\Documents\\GitHub\\net-rogue\\Rogue\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\s2200794\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\leoha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,15 +26,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Tiedostot\\rogue\\TurboMapReader-main\\TurboMapReader-main\\TurboMapReader.csproj": {
-                "projectPath": "C:\\Tiedostot\\rogue\\TurboMapReader-main\\TurboMapReader-main\\TurboMapReader.csproj"
+              "C:\\Users\\leoha\\Documents\\rogue\\TurboMapReader-main\\TurboMapReader-main\\TurboMapReader.csproj": {
+                "projectPath": "C:\\Users\\leoha\\Documents\\rogue\\TurboMapReader-main\\TurboMapReader-main\\TurboMapReader.csproj"
               }
             }
           }
@@ -44,7 +47,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -75,78 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Tiedostot\\rogue\\TurboMapReader-main\\TurboMapReader-main\\TurboMapReader.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Tiedostot\\rogue\\TurboMapReader-main\\TurboMapReader-main\\TurboMapReader.csproj",
-        "projectName": "TurboMapReader",
-        "projectPath": "C:\\Tiedostot\\rogue\\TurboMapReader-main\\TurboMapReader-main\\TurboMapReader.csproj",
-        "packagesPath": "C:\\Users\\s2200794\\.nuget\\packages\\",
-        "outputPath": "C:\\Tiedostot\\rogue\\TurboMapReader-main\\TurboMapReader-main\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\s2200794\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "dependencies": {
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[13.0.3, )"
-            },
-            "System.Xml.XmlSerializer": {
-              "target": "Package",
-              "version": "[4.3.0, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

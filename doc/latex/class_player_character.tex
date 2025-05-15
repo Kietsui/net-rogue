@@ -1,0 +1,67 @@
+\doxysection{Player\+Character Class Reference}
+\hypertarget{class_player_character}{}\label{class_player_character}\index{PlayerCharacter@{PlayerCharacter}}
+
+
+Collaboration diagram for Player\+Character\+:
+% FIG 0
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_player_character_ae296da837c36a680acf47ba9d67d9111}\label{class_player_character_ae296da837c36a680acf47ba9d67d9111} 
+enum {\bfseries Race} \{ {\bfseries Human}
+, {\bfseries Elf}
+, {\bfseries Dwarf}
+, {\bfseries Penguin}
+ \}
+\item 
+\Hypertarget{class_player_character_a8a6f2bcb8b33798cf58ce4beab48fc71}\label{class_player_character_a8a6f2bcb8b33798cf58ce4beab48fc71} 
+enum {\bfseries Class} \{ {\bfseries Warrior}
+, {\bfseries Mage}
+, {\bfseries Rogue}
+, {\bfseries Cleric}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_player_character_a581f121e8a6a2a5378a03bb5c965eb98}\label{class_player_character_a581f121e8a6a2a5378a03bb5c965eb98} 
+{\bfseries Player\+Character} (char character\+Symbol, Color color)
+\item 
+\Hypertarget{class_player_character_ac20bd3da113a7161feaa46b12081d182}\label{class_player_character_ac20bd3da113a7161feaa46b12081d182} 
+void {\bfseries Move} (int x\+\_\+move, int y\+\_\+move)
+\item 
+\Hypertarget{class_player_character_a781a2c3db86fc2664f0c58b53c2259f3}\label{class_player_character_a781a2c3db86fc2664f0c58b53c2259f3} 
+void {\bfseries Draw} ()
+\item 
+\Hypertarget{class_player_character_ac0e6e5148e7accfe70a331d6474a4618}\label{class_player_character_ac0e6e5148e7accfe70a331d6474a4618} 
+void {\bfseries Set\+Image\+And\+Index} (Texture atlas\+Image, int images\+Per\+Row, int index)
+\item 
+\Hypertarget{class_player_character_a959679942974338ed01a5a2ce0580712}\label{class_player_character_a959679942974338ed01a5a2ce0580712} 
+{\bfseries Player\+Character} (string name, Race race, Class class\+Type)
+\item 
+\Hypertarget{class_player_character_ad264b2f9098be9e97a0bb51c6bf157e9}\label{class_player_character_ad264b2f9098be9e97a0bb51c6bf157e9} 
+void {\bfseries Print\+Details} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_player_character_a6753258e8147c4b198c53d94c19a407a}\label{class_player_character_a6753258e8147c4b198c53d94c19a407a} 
+\mbox{\hyperlink{struct_point2_d}{Point2D}} {\bfseries position}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_player_character_a6df6026015d67975fcfe82e0afcc5a65}\label{class_player_character_a6df6026015d67975fcfe82e0afcc5a65} 
+string {\bfseries Nimi}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\Hypertarget{class_player_character_a42abe75cc2ba1c114f20cc020b9b31f0}\label{class_player_character_a42abe75cc2ba1c114f20cc020b9b31f0} 
+Race {\bfseries Rotu}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\Hypertarget{class_player_character_a1ac82e87b8747b8c2d7a71bd79d45ab9}\label{class_player_character_a1ac82e87b8747b8c2d7a71bd79d45ab9} 
+Class {\bfseries Hahmoluokka}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Rogue/Player\+Character.\+cs\end{DoxyCompactItemize}

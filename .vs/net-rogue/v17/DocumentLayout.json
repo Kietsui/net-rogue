@@ -1,22 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Tiedostot\\Github\\net-rogue\\",
+  "WorkspaceRootPath": "C:\\Users\\leoha\\Documents\\GitHub\\net-rogue\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7B222123-FD98-45FA-9886-F4778D107F3A}|Rogue\\Rogue.csproj|c:\\tiedostot\\github\\net-rogue\\rogue\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B222123-FD98-45FA-9886-F4778D107F3A}|Rogue\\Rogue.csproj|solutionrelative:rogue\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7B222123-FD98-45FA-9886-F4778D107F3A}|Rogue\\Rogue.csproj|c:\\users\\leoha\\documents\\github\\net-rogue\\rogue\\maplayers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B222123-FD98-45FA-9886-F4778D107F3A}|Rogue\\Rogue.csproj|solutionrelative:rogue\\maplayers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B222123-FD98-45FA-9886-F4778D107F3A}|Rogue\\Rogue.csproj|c:\\tiedostot\\github\\net-rogue\\rogue\\map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B222123-FD98-45FA-9886-F4778D107F3A}|Rogue\\Rogue.csproj|c:\\users\\leoha\\documents\\github\\net-rogue\\rogue\\map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B222123-FD98-45FA-9886-F4778D107F3A}|Rogue\\Rogue.csproj|solutionrelative:rogue\\map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B222123-FD98-45FA-9886-F4778D107F3A}|Rogue\\Rogue.csproj|c:\\tiedostot\\github\\net-rogue\\rogue\\maploader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B222123-FD98-45FA-9886-F4778D107F3A}|Rogue\\Rogue.csproj|c:\\users\\leoha\\documents\\github\\net-rogue\\rogue\\maploader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B222123-FD98-45FA-9886-F4778D107F3A}|Rogue\\Rogue.csproj|solutionrelative:rogue\\maploader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B222123-FD98-45FA-9886-F4778D107F3A}|Rogue\\Rogue.csproj|c:\\tiedostot\\github\\net-rogue\\rogue\\maplayers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B222123-FD98-45FA-9886-F4778D107F3A}|Rogue\\Rogue.csproj|solutionrelative:rogue\\maplayers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7B222123-FD98-45FA-9886-F4778D107F3A}|Rogue\\Rogue.csproj|c:\\users\\leoha\\documents\\github\\net-rogue\\rogue\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B222123-FD98-45FA-9886-F4778D107F3A}|Rogue\\Rogue.csproj|solutionrelative:rogue\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B222123-FD98-45FA-9886-F4778D107F3A}|Rogue\\Rogue.csproj|c:\\users\\leoha\\documents\\github\\net-rogue\\rogue\\playercharacter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B222123-FD98-45FA-9886-F4778D107F3A}|Rogue\\Rogue.csproj|solutionrelative:rogue\\playercharacter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,17 +30,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
+              "Title": "PlayerCharacter.cs",
+              "DocumentMoniker": "C:\\Users\\leoha\\Documents\\GitHub\\net-rogue\\Rogue\\PlayerCharacter.cs",
+              "RelativeDocumentMoniker": "Rogue\\PlayerCharacter.cs",
+              "ToolTip": "C:\\Users\\leoha\\Documents\\GitHub\\net-rogue\\Rogue\\PlayerCharacter.cs",
+              "RelativeToolTip": "Rogue\\PlayerCharacter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T16:31:29.977Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "MapLayers.cs",
-              "DocumentMoniker": "C:\\Tiedostot\\Github\\net-rogue\\Rogue\\MapLayers.cs",
+              "DocumentMoniker": "C:\\Users\\leoha\\Documents\\GitHub\\net-rogue\\Rogue\\MapLayers.cs",
               "RelativeDocumentMoniker": "Rogue\\MapLayers.cs",
-              "ToolTip": "C:\\Tiedostot\\Github\\net-rogue\\Rogue\\MapLayers.cs",
+              "ToolTip": "C:\\Users\\leoha\\Documents\\GitHub\\net-rogue\\Rogue\\MapLayers.cs",
               "RelativeToolTip": "Rogue\\MapLayers.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAB0AAAAAAAAAAAA9wCoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-14T07:49:38.976Z",
               "EditorCaption": ""
@@ -45,11 +62,11 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Map.cs",
-              "DocumentMoniker": "C:\\Tiedostot\\Github\\net-rogue\\Rogue\\Map.cs",
+              "DocumentMoniker": "C:\\Users\\leoha\\Documents\\GitHub\\net-rogue\\Rogue\\Map.cs",
               "RelativeDocumentMoniker": "Rogue\\Map.cs",
-              "ToolTip": "C:\\Tiedostot\\Github\\net-rogue\\Rogue\\Map.cs",
+              "ToolTip": "C:\\Users\\leoha\\Documents\\GitHub\\net-rogue\\Rogue\\Map.cs",
               "RelativeToolTip": "Rogue\\Map.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAcwDIAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHgAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-14T11:59:31.021Z",
               "EditorCaption": ""
@@ -58,24 +75,24 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "MapLoader.cs",
-              "DocumentMoniker": "C:\\Tiedostot\\Github\\net-rogue\\Rogue\\MapLoader.cs",
+              "DocumentMoniker": "C:\\Users\\leoha\\Documents\\GitHub\\net-rogue\\Rogue\\MapLoader.cs",
               "RelativeDocumentMoniker": "Rogue\\MapLoader.cs",
-              "ToolTip": "C:\\Tiedostot\\Github\\net-rogue\\Rogue\\MapLoader.cs",
+              "ToolTip": "C:\\Users\\leoha\\Documents\\GitHub\\net-rogue\\Rogue\\MapLoader.cs",
               "RelativeToolTip": "Rogue\\MapLoader.cs",
-              "ViewState": "AgIAAF0AAAAAAAAAAIA4wGcAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAwwGcAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-14T11:59:31.024Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Game.cs",
-              "DocumentMoniker": "C:\\Tiedostot\\Github\\net-rogue\\Rogue\\Game.cs",
+              "DocumentMoniker": "C:\\Users\\leoha\\Documents\\GitHub\\net-rogue\\Rogue\\Game.cs",
               "RelativeDocumentMoniker": "Rogue\\Game.cs",
-              "ToolTip": "C:\\Tiedostot\\Github\\net-rogue\\Rogue\\Game.cs",
+              "ToolTip": "C:\\Users\\leoha\\Documents\\GitHub\\net-rogue\\Rogue\\Game.cs",
               "RelativeToolTip": "Rogue\\Game.cs",
-              "ViewState": "AgIAAMoAAAAAAAAAAAAswNwAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAI8AAAAAAAAAAAAwwMMAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-14T11:59:31.032Z",
               "EditorCaption": ""

@@ -1,0 +1,150 @@
+\doxysection{Map Class Reference}
+\hypertarget{class_map}{}\label{class_map}\index{Map@{Map}}
+
+
+Collaboration diagram for Map\+:
+% FIG 0
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_map_a3a5d09646ebc572d95368378e526ce57}\label{class_map_a3a5d09646ebc572d95368378e526ce57} 
+enum {\bfseries Map\+Tile} \+: int \{ {\bfseries Floor} = 1
+, {\bfseries Wall} = 2
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_map_a943593a47c7d10d3876bebdea4beee32}\label{class_map_a943593a47c7d10d3876bebdea4beee32} 
+\mbox{\hyperlink{class_map_layer}{Map\+Layer}} {\bfseries Get\+Layer} (string layer\+Name)
+\item 
+\mbox{\hyperlink{class_map_ae912564e34d399bf2874eb1a0efe0dcd}{Map}} (int width, int\mbox{[}$\,$\mbox{]} tiles, Texture atlas, int images\+Per\+Row, int wall\+Idx, int floor\+Idx, int\mbox{[}$\,$\mbox{]} item\+Layer, int\mbox{[}$\,$\mbox{]} enemy\+Layer)
+\begin{DoxyCompactList}\small\item\em Alustaa kartan ja siihen liittyvät kerrokset sekä lataa viholliset ja esineet. \end{DoxyCompactList}\item 
+\Hypertarget{class_map_a42a4335fda2640bb308e86e11b786349}\label{class_map_a42a4335fda2640bb308e86e11b786349} 
+void {\bfseries Load\+Enemies\+And\+Items} (Texture sprite\+Atlas, int\mbox{[}$\,$\mbox{]} enemy\+Layer, int\mbox{[}$\,$\mbox{]} item\+Layer)
+\item 
+void \mbox{\hyperlink{class_map_a29909c69034236e28f0b3bfbcee41d09}{Draw}} (Texture my\+Image)
+\begin{DoxyCompactList}\small\item\em Piirtää koko kartan kaikki tasot\+: maaston, esineet ja viholliset. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_map_aa784dfcd7e10c7cc2d459720b788ddc7}{Draw\+Map\+Tiles}} (Texture my\+Image, \mbox{\hyperlink{class_map_layer}{Map\+Layer}} layer)
+\begin{DoxyCompactList}\small\item\em Piirtää maalaatat (esim. lattia ja seinä) annetun tason mukaan. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_map_ae1ef1d54c643ce501b9a837d4ce30a0c}{Draw\+Items}} (Texture my\+Image, \mbox{\hyperlink{class_map_layer}{Map\+Layer}} layer)
+\begin{DoxyCompactList}\small\item\em Piirtää kartalla olevat esineet kutsumalla jokaisen esineen Draw-\/metodia. \end{DoxyCompactList}\item 
+\Hypertarget{class_map_aa2b8639fe940195cd3a02a880975b125}\label{class_map_aa2b8639fe940195cd3a02a880975b125} 
+void {\bfseries Draw\+Enemies} (Texture my\+Image, \mbox{\hyperlink{class_map_layer}{Map\+Layer}} layer)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_map_af05bd3f093edde6dc101c878afbd3977}\label{class_map_af05bd3f093edde6dc101c878afbd3977} 
+int {\bfseries map\+Width}
+\item 
+\Hypertarget{class_map_a5e04a1e3bba0b37bfc08bf8e86da1a91}\label{class_map_a5e04a1e3bba0b37bfc08bf8e86da1a91} 
+\mbox{\hyperlink{class_map_layer}{Map\+Layer}}\mbox{[}$\,$\mbox{]} {\bfseries layers}
+\item 
+\Hypertarget{class_map_a47799dd7aaab7eb02f7074af6e9d1df9}\label{class_map_a47799dd7aaab7eb02f7074af6e9d1df9} 
+List$<$ \mbox{\hyperlink{class_enemy}{Enemy}} $>$ {\bfseries enemies}
+\item 
+\Hypertarget{class_map_aac9fd033f13e5682fe8fb8ac3ed7e70c}\label{class_map_aac9fd033f13e5682fe8fb8ac3ed7e70c} 
+List$<$ \mbox{\hyperlink{class_item}{Item}} $>$ {\bfseries items}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_map_aff6287a775871aea2de1debd76dd0cec}\label{class_map_aff6287a775871aea2de1debd76dd0cec} 
+int\mbox{[}$\,$\mbox{]} {\bfseries map\+Tiles}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_map_ae912564e34d399bf2874eb1a0efe0dcd}\index{Map@{Map}!Map@{Map}}
+\index{Map@{Map}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{Map()}{Map()}}
+{\footnotesize\ttfamily \label{class_map_ae912564e34d399bf2874eb1a0efe0dcd} 
+Map.\+Map (\begin{DoxyParamCaption}\item[{int}]{width}{, }\item[{int\mbox{[}$\,$\mbox{]}}]{tiles}{, }\item[{Texture}]{atlas}{, }\item[{int}]{images\+Per\+Row}{, }\item[{int}]{wall\+Idx}{, }\item[{int}]{floor\+Idx}{, }\item[{int\mbox{[}$\,$\mbox{]}}]{item\+Layer}{, }\item[{int\mbox{[}$\,$\mbox{]}}]{enemy\+Layer}{}\end{DoxyParamCaption})}
+
+
+
+Alustaa kartan ja siihen liittyvät kerrokset sekä lataa viholliset ja esineet. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & Kartan leveys ruuduissa.\\
+\hline
+{\em tiles} & ground layer ruutujen indeksit.\\
+\hline
+{\em atlas} & Käytettävä tekstuurikartta.\\
+\hline
+{\em images\+Per\+Row} & Kuvien määrä rivillä tekstuurissa.\\
+\hline
+{\em wall\+Idx} & Seinäruudun indeksitekstuurissa.\\
+\hline
+{\em floor\+Idx} & Lattiaruudun indeksitekstuurissa.\\
+\hline
+{\em item\+Layer} & \doxylink{class_item}{Item} layerin ruutujen indeksit.\\
+\hline
+{\em enemy\+Layer} & \doxylink{class_enemy}{Enemy} layerin ruutujen indeksit.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_map_a29909c69034236e28f0b3bfbcee41d09}\index{Map@{Map}!Draw@{Draw}}
+\index{Draw@{Draw}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily \label{class_map_a29909c69034236e28f0b3bfbcee41d09} 
+void Map.\+Draw (\begin{DoxyParamCaption}\item[{Texture}]{my\+Image}{}\end{DoxyParamCaption})}
+
+
+
+Piirtää koko kartan kaikki tasot\+: maaston, esineet ja viholliset. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Image} & Tekstuurikuva (sprite atlas), jota käytetään piirtoon.\\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 1
+\Hypertarget{class_map_ae1ef1d54c643ce501b9a837d4ce30a0c}\index{Map@{Map}!DrawItems@{DrawItems}}
+\index{DrawItems@{DrawItems}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{DrawItems()}{DrawItems()}}
+{\footnotesize\ttfamily \label{class_map_ae1ef1d54c643ce501b9a837d4ce30a0c} 
+void Map.\+Draw\+Items (\begin{DoxyParamCaption}\item[{Texture}]{my\+Image}{, }\item[{\mbox{\hyperlink{class_map_layer}{Map\+Layer}}}]{layer}{}\end{DoxyParamCaption})}
+
+
+
+Piirtää kartalla olevat esineet kutsumalla jokaisen esineen Draw-\/metodia. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Image} & Tekstuurikuva (ei käytetä suoraan tässä metodissa).\\
+\hline
+{\em layer} & map layer, joka sisältää esinetiedot.\\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 2
+\Hypertarget{class_map_aa784dfcd7e10c7cc2d459720b788ddc7}\index{Map@{Map}!DrawMapTiles@{DrawMapTiles}}
+\index{DrawMapTiles@{DrawMapTiles}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{DrawMapTiles()}{DrawMapTiles()}}
+{\footnotesize\ttfamily \label{class_map_aa784dfcd7e10c7cc2d459720b788ddc7} 
+void Map.\+Draw\+Map\+Tiles (\begin{DoxyParamCaption}\item[{Texture}]{my\+Image}{, }\item[{\mbox{\hyperlink{class_map_layer}{Map\+Layer}}}]{layer}{}\end{DoxyParamCaption})}
+
+
+
+Piirtää maalaatat (esim. lattia ja seinä) annetun tason mukaan. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Image} & Tekstuurikuva (sprite atlas), josta laatat leikataan.\\
+\hline
+{\em layer} & Karttataso, joka sisältää maastolaattojen tiedot.\\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 3
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Rogue/Map.\+cs\end{DoxyCompactItemize}
